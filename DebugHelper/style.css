@@ -1,3 +1,10 @@
 .highlight {
     color: red;
 }
+.keywordInput {
+    margin-right: 10px; /* Adjust the value as needed */
+}
+.colorSelect
+{
+    margin-left: 5px
+}

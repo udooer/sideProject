@@ -7,11 +7,19 @@
 
 <body>
     <input type="file" id="fileInput" accept=".txt">
-    <input type="text" id="keywordInput" placeholder="Enter keyword">
+    <button onclick="addKeywordColorPair()">Add Keyword</button>
     <button onclick="highlightKeyword()">Run</button>
 
-    <section>section test</section>
-    <div>div Test</div>
+    <div id="keywordColorPairs">
+        <!-- <input type="text" class="keywordInput" placeholder="Enter keyword">
+        <select class="colorSelect">
+            <option value="red" selected>Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+        <br> -->
+    </div>
+
     <div id="content"></div>
 
     <script src="script.js"></script>
