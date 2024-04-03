@@ -52,12 +52,17 @@ function highlightKeyword() {
 }
 
 function addKeywordColorPair() {
+    addKeywordColorElement("", "Red");
+}
+
+function addKeywordColorElement(input, highlightColor){
     const keywordColorPairs = document.getElementById("keywordColorPairs");
 
     const keywordInput = document.createElement("input");
     keywordInput.type = "text";
     keywordInput.className = "keywordInput";
     keywordInput.placeholder = "Enter keyword";
+    keywordInput.value = input;
 
     const colorSelect = document.createElement("select");
     colorSelect.className = "colorSelect";
@@ -65,6 +70,7 @@ function addKeywordColorPair() {
         const colorOption = document.createElement("option");
         colorOption.value = color.toLowerCase();
         colorOption.textContent = color;
+        colorOption.selected = highlightColor.toLowerCase() == color.toLowerCase();
         colorSelect.append(colorOption);
     });
 
