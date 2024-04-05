@@ -78,3 +78,26 @@ function addKeywordColorElement(input, highlightColor){
     keywordColorPairs.append(colorSelect);
     keywordColorPairs.append(document.createElement("br"));
 }
+
+function importJSONKeyword(){
+    const jsonFile = document.getElementById("jsonFile");
+
+    if(jsonFile.files.length == 0){
+        alert("Please select a JSON file");
+        return;
+    }
+
+    const file = jsonFile.files[0];
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const jsonContent = e.target.result;
+        const keywordColorPairs = JSON.parse(jsonContent);
+
+        const container = document.getElementById("keywordColorPairs");
+        for(const pair of keywordColorPairs){
+            addKeywordColorElement(pair.keyword, pair.color);
+        }
+    };
+
+    reader.readAsText(file);
+}

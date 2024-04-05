@@ -9,16 +9,17 @@
 <body>
     <div style="display: flex; justify-content: space-between; margin: 10px 0px;">
         <div>
-            <label for="fileInput" class="fileInputLabel">Choose a file</label>
-            <input type="file" id="fileInput" accept=".txt" style="display: none;">
+            <!-- <label for="fileInput" class="fileInputLabel">Choose a file</label> -->
+            <button onclick="highlightKeyword()">HighLight</button>
+            <input type="file" id="fileInput" accept=".txt" style="display: inline;">
         </div>
 
         <div>
-            <label for="keywordFile" class="keywordFileLabel">Import a keyword list</label>
-            <input type="file" id="keywordFile" accept=".json" style="display: none;">
+            <!-- <label for="jsonFile" class="keywordFileLabel">Import a keyword list</label> -->
+            <button onclick="importJSONKeyword()">Import</button>
+            <input type="file" id="jsonFile" accept=".json" style="display: inline;">
 
-            <button onclick="addKeywordColorPair()">Add Keyword-Color Pair</button>
-            <button onclick="highlightKeyword()">Run</button>
+            <button onclick="addKeywordColorPair()" style="margin-left: 30px">Add Keyword-Color Pair</button>
         </div>
     </div>
 
