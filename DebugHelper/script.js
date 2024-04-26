@@ -21,7 +21,6 @@ function highlightKeyword() {
     }
     if (!isContainKeyWord) {
         alert("Please input keyword");
-        return;
     }
 
     var file = fileInput.files[0];
@@ -29,23 +28,28 @@ function highlightKeyword() {
 
     reader.onload = function (e) {
         var lines = e.target.result.split("\n");
-        contentDiv.innerHTML = "";
+		contentDiv.innerHTML = "";
+		const output = [];
 
-        for (var i = 0; i < lines.length; i++) {
+		for (var i = 0; i < lines.length; i++) {
+			let formattedLine = lines[i];
             let hasHighlighted = false;
             for (var j = 0; j < keywordInputs.length; j++) {
                 if (lines[i].includes(keywordInputs[j].value)) {
-                    contentDiv.innerHTML +=
-                        '<span style="color:' + colorSelects[j].value + '">' + lines[i] + "</span><br>";
+					formattedLine = '<span style="color:' + colorSelects[j].value + '">' + lines[i] + "</span><br>";
                     hasHighlighted = true;
                     break;
                 }
-            }
-            if (!hasHighlighted) {
-                contentDiv.innerHTML += lines[i] + "<br>";
-            }
+			}
 
-        }
+			if (!hasHighlighted) {
+				formattedLine = lines[i] + "<br>";
+			}
+
+			output.push(formattedLine);
+		}
+
+		contentDiv.innerHTML = output.join("");
     };
 
     reader.readAsText(file);
